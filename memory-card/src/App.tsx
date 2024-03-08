@@ -9,11 +9,11 @@ function App() {
   // dispatch(authActions.setError({ message: res?.message, type: ''}))
 
   return (
-    <section className='mainSection'>
+    <div className='mainDivCnt'>
     <Background />
 
     <Home />
-    </section>
+    </div>
   )
 }
 
