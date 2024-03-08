@@ -1,4 +1,6 @@
 import './App.css'
+import Background from './components/background/Background.tsx'
+import Home from './components/home/Home.tsx'
 
 function App() {
   // let dispatch = useDispatch()
@@ -7,9 +9,11 @@ function App() {
   // dispatch(authActions.setError({ message: res?.message, type: ''}))
 
   return (
-    <>
-    <h2>Welcome to Memory Card Game</h2>
-    </>
+    <section className='mainSection'>
+    <Background />
+
+    <Home />
+    </section>
   )
 }
 
