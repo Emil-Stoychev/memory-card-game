@@ -5,7 +5,6 @@ export default function Background() {
   return (
     <>
       <div className={styles.container}>
-        {/* Render multiple rows and columns of cards */}
         {Array.from({ length: 4 }, (_, rowIndex) => (
           <div key={rowIndex} className={styles.row}>
             {Array.from({ length: 8 }, (_, colIndex) => (

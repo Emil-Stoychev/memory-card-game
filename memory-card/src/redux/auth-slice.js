@@ -6,33 +6,24 @@ const authSlice = createSlice({
   initialState: {
     user: {},
     game: {},
+    screen: {
+      on: 'home'
+    }
   },
   error: {
     message: "",
     type: "",
   },
   reducers: {
-    setEmployeeActive(state, action) {
-      if(!state.employees.find(x => x._id == action.payload?._id)) {
-        state.employees = [...state.employees, action.payload];
+    setNewScreen(state, action) {
+        state.screen.on = action.payload
+    },
+    startNewGame(state, action) {
+      state.screen.on = 'game'
+      state.game = {
+        gameLevel: action.payload,
+        points: 0,
       }
-    },
-    removeEmployeeActive(state, action) {
-      state.employees = state.employees.filter(
-        (x) => x._id != action.payload._id
-      );
-    },
-    setAllEmployees(state, action) {
-      state.employees = action.payload;
-    },
-    setEmployeeAfterEdit(state, action) {
-      state.employees = state.employees.map((x) => {
-        if (x._id == action.payload._id) {
-          return action.payload;
-        }
-
-        return x;
-      });
     },
     login(state, action) {
       state.isLoggedIn = true;

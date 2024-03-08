@@ -1,20 +1,24 @@
-import './App.css'
-import Background from './components/background/Background.tsx'
-import Home from './components/home/Home.tsx'
+import "./App.css";
+import Background from "./components/background/Background.tsx";
+import Home from "./components/home/Home.tsx";
+import ForUs from "./components/forus/ForUs.tsx";
+import Options from "./components/options/Options.tsx";
+import { useSelector } from "react-redux";
+import Game from "./components/game/Game.tsx";
 
 function App() {
-  // let dispatch = useDispatch()
-  // const user = useSelector(state => state.auth.user)
-  // const user = useSelector(state => state.auth.user)
-  // dispatch(authActions.setError({ message: res?.message, type: ''}))
+  const user = useSelector(state => state.auth)
 
   return (
-    <div className='mainDivCnt'>
-    <Background />
+    <div className="mainDivCnt">
+      <Background />
 
-    <Home />
+      {user?.screen?.on == 'home' && <Home />}
+      {user?.screen?.on == 'game' && <Game />}
+      {user?.screen?.on == 'options' && <Options />}
+      {user?.screen?.on == 'forUs' && <ForUs />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
