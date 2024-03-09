@@ -12,10 +12,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
-
-  /* max-width: 1920px; */
-  overflow: hidden;
-
 }
 
 a {
