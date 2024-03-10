@@ -17,6 +17,7 @@ export default function CardTable() {
     if (startIn > -1) return;
     stopMouse();
     startInTimer(setInt, setStartIn);
+    dispatch(authActions.startNewGame(game.gameLevel));
   }, [restarts]);
 
   useEffect(() => {

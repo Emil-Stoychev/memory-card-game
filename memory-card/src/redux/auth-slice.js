@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Snackbar from "awesome-snackbar";
 import { generateEmojis } from "../components/utils";
+import { saveDataToLocalStorage } from '../components/utils'
 
 const authSlice = createSlice({
   name: "auth",
@@ -16,13 +17,32 @@ const authSlice = createSlice({
         rows: 6,
       },
     },
-    user: {},
+    user: {
+      points: 0,
+      easy: {
+        bestMoves: 0,
+        bestMisses: 0,
+        lastMoves: 0,
+        lastMisses: 0,
+      },
+      normal: {
+        bestMoves: 0,
+        bestMisses: 0,
+        lastMoves: 0,
+        lastMisses: 0,
+      },
+      hard: {
+        bestMoves: 0,
+        bestMisses: 0,
+        lastMoves: 0,
+        lastMisses: 0,
+      }
+    },
     game: {
       gameLevel: "easy",
       moves: 0,
       misses: 0,
       points: 0,
-      timer: 0,
       endGame: false,
       emojis: generateEmojis("easy"),
     },
@@ -36,6 +56,9 @@ const authSlice = createSlice({
     type: "",
   },
   reducers: {
+    setUserFromLocalStorage(state, action) {
+      state.user = action.payload
+    },
     setNewScreen(state, action) {
       state.screen.on = action.payload;
     },
@@ -46,7 +69,6 @@ const authSlice = createSlice({
         moves: 0,
         misses: 0,
         points: 0,
-        timer: 0,
         endGame: false,
         emojis: generateEmojis(action.payload),
       };
@@ -66,6 +88,18 @@ const authSlice = createSlice({
         (state.game.gameLevel === "hard" && state.game.points == 15)
       ) {
         state.game.endGame = true;
+
+        if (state.user && state.game.gameLevel) {
+          state.user[state.game.gameLevel] = {
+            bestMoves: state.user?.[state.game.gameLevel].bestMoves == 0 ? state.game.moves : state.user?.[state.game.gameLevel].bestMoves < state.game.moves ? state.user?.[state.game.gameLevel].bestMoves : state.game.moves,
+            bestMisses: state.user?.[state.game.gameLevel].bestMisses == 0 ? state.game.misses : state.user?.[state.game.gameLevel].bestMisses < state.game.misses ? state.user?.[state.game.gameLevel].bestMisses : state.game.misses,
+            lastMoves: state.game.moves,
+            lastMisses:  state.game.misses,
+          };
+          state.user.points += state.game.points
+
+          saveDataToLocalStorage("sessionGame", state.user, 'memory-card-game');
+        }
       } else {
         state.game.endGame = false;
       }
