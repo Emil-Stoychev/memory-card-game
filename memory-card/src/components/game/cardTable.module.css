@@ -10,7 +10,7 @@
 }
 
 .endGameMsg {
-  position: absolute;
+  position: fixed;
   z-index: 2;
   letter-spacing: 2px;
   font-size: 2rem;
