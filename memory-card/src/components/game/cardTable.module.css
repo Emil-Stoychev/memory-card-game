@@ -9,6 +9,60 @@
   margin-bottom: 4rem;
 }
 
+.endGameMsg {
+  position: absolute;
+  z-index: 2;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  margin-top: 20%;
+}
+
+.startInMsg {
+  position: fixed;
+  z-index: 2;
+  letter-spacing: 2px;
+  margin-top: 20%;
+  text-shadow: 2px 2px 2px #646cffaa;
+}
+
+@keyframes bigToSmall {
+  0% {
+    font-size: 5rem;
+    margin-left: 200%;
+    transform: rotate(180deg);
+  }
+  15% {
+    margin-left: 0;
+    font-size: 8rem;
+    transform: rotate(0deg);
+  }
+  50% {
+    font-size: 1rem;
+    transform: rotate(-180deg);
+  }
+  100% {
+    font-size: 0rem;
+    margin-top: 30%;
+    margin-left: -3500%;
+  }
+}
+
+.startInMsg[data-startin="3"] {
+  animation: bigToSmall 3s ease-in-out;
+}
+
+.startInMsg[data-startin="2"] {
+  animation: bigToSmall 3s ease-in-out 1s;
+}
+
+.startInMsg[data-startin="1"] {
+  animation: bigToSmall 3s ease-in-out 2s;
+}
+
+.startInMsg[data-startin="0"] {
+  animation: bigToSmall 4s ease-in-out 3s;
+}
+
 .row {
   display: flex;
 }

@@ -9,6 +9,10 @@
   position: relative;
 }
 
+.notAllowed {
+  cursor: not-allowed;
+}
+
 .information {
   display: flex;
   justify-content: space-evenly;
