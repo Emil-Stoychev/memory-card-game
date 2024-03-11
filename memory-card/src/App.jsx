@@ -1,13 +1,14 @@
 import "./App.css";
-import Background from "./components/background/Background.tsx";
-import Home from "./components/home/Home.tsx";
-import ForUs from "./components/forus/ForUs.tsx";
-import Options from "./components/options/Options.tsx";
+import React from "react";
+import Background from "./components/background/Background.jsx";
+import Home from "./components/home/Home.jsx";
+import ForUs from "./components/forus/ForUs.jsx";
+import Options from "./components/options/Options.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import Game from "./components/game/Game.tsx";
-import { getDataFromLocalStorage, saveDataToLocalStorage } from './components/utils'
+import Game from "./components/game/Game.jsx";
+import { getDataFromLocalStorage } from './components/utils.js'
 import { useEffect } from "react";
-import { authActions } from './redux/auth-slice'
+import { authActions } from './redux/auth-slice.js'
 
 function App() {
   const user = useSelector(state => state.auth)

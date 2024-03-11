@@ -1,3 +1,4 @@
+import React from "react";
 import * as styles from "./style.module.css";
 import { authActions } from "../../redux/auth-slice";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,3 +1,4 @@
+import React from "react";
 import * as styles from "./cardTable.module.css";
 import { useEffect, useState } from "react";
 

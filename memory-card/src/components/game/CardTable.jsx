@@ -1,3 +1,4 @@
+import React from "react";
 import * as styles from "./cardTable.module.css";
 import Card from "./Card";
 import { useDispatch, useSelector } from "react-redux";

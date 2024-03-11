@@ -1,10 +1,11 @@
+import React from "react";
 import { useState } from "react";
 import * as styles from "./homeStyle.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../redux/auth-slice";
 
 export default function Home() {
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.auth);
 
   const changeScreen = (newScreen) => {
