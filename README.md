@@ -1,5 +1,7 @@
 # Memory Card Game with React
 
+## Deploy: https://memory-card-game-wine.vercel.app/
+
 - [x] **Main Menu**
 
 🎮 Welcome screen where users can start the game, choosing between different difficulty levels: easy (10 cards), normal (20 cards), and hard (30 cards). Users also have access to the options menu, which includes game rules and user score statistics. Additionally, the "For Us" section contains links to the developers' profiles on GitHub, Instagram, and LinkedIn.
